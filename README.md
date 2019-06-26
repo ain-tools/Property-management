@@ -1,6 +1,6 @@
-# Frontend
+# Property Management
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
+An angular app to store and manage rental properties using mostly localstorage. Link : https://landlordmanagement.github.io/
 
 ## Development server
 
