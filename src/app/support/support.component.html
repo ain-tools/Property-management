@@ -1,0 +1,18 @@
+<h1 style="color:white;position:absolute;left:2.5vw;text-decoration: underline">Support</h1>
+<br><br><small style="color:white" > &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; I'm open to suggestions so feel free to email me about your improvement idea. If you need support you can email me.</small>
+<div style="position: absolute;top:5vw;left:1.2vw;background-color:#23272a;width: 28vw;height:4vw;z-index: 1;border:transparent;border-radius: 1vw;"></div>
+<h2 style="color:white;position:absolute;left:10vw;top:5vw;z-index:2" ><i class="fas fa-envelope" style="position:absolute;left:-5.5vw;top:0.1vw;color:white;;z-index:2"><b style="font-family:monospace;">Email</b></i>:npkden@hotmail.com</h2>
+<i class="fas fa-question" style="position:absolute;color:white;top:10.4vw;left:2.4vw;font-size: 1.3vw"></i>
+<h2 style="color:white;position:absolute;left:3.8vw;top:9vw;" >FAQs:</h2>
+
+<div (click)="showAnswer(1,el1)" #el1 style="position: absolute;top:13vw;left:1.2vw;background-color:#23272a;width: 29vw;height:3vw;z-index: 4;border:transparent;border-radius: 1vw;cursor: pointer;"></div>
+<h2 (click)="showAnswer(1,el1)" style="color:white;position:absolute;left:3vw;top:12.5vw;z-index:5;width: 25vw;cursor: pointer;" >Q:Who are you? <i *ngIf="!ans1" style="float:right;" class="fas fa-chevron-right"></i><i *ngIf="ans1" style="float:right;" class="fas fa-chevron-down"></i> <br> <b *ngIf="ans1" >A:I'm a computer science student from Canada aiming to become a software developer.</b></h2>
+
+<div (click)="showAnswer(2,el2)" #el2 style="position: absolute;top:21vw;left:1.2vw;background-color:#23272a;width: 29vw;height:3vw;z-index: 2;border:transparent;border-radius: 1vw;cursor: pointer;"></div>
+<h2 (click)="showAnswer(2,el2)" style="color:white;position:absolute;left:3vw;top:20.5vw;z-index:3;width: 25vw;cursor: pointer;" >Q:Is this free? <i *ngIf="!ans2" style="float:right;" class="fas fa-chevron-right"></i><i *ngIf="ans2" style="float:right;" class="fas fa-chevron-down"></i><br> <b *ngIf="ans2" >A:Yep,enjoy!</b></h2>
+
+<div (click)="showAnswer(3,el3)" #el3 style="position: absolute;top:29vw;left:1.2vw;background-color:#23272a;width: 29vw;height:3vw;z-index: 1;border:transparent;border-radius: 1vw;cursor: pointer;"></div>
+<h2 (click)="showAnswer(3,el3)" style="color:white;position:absolute;left:3vw;top:28.5vw;z-index:2;width: 25vw;cursor: pointer;" >Q:How can I help? <i *ngIf="!ans3" style="float:right;" class="fas fa-chevron-right"></i><i *ngIf="ans3" style="float:right;" class="fas fa-chevron-down"></i><br> <b *ngIf="ans3" >A:You can help me by sending me suggestions on how to improve this app, all help is appreciated.</b></h2>
+
+<div (click)="showAnswer(4,el4)" #el4 style="position: absolute;top:13vw;left:35.2vw;background-color:#23272a;width: 29vw;height:3vw;z-index: 3;border:transparent;border-radius: 1vw;cursor: pointer;"></div>
+<h2 (click)="showAnswer(4,el4)" style="color:white;position:absolute;left:37vw;top:12.5vw;z-index:4;width: 25vw;cursor: pointer;" >Q:Can I hire you? <i *ngIf="!ans4" style="float:right;" class="fas fa-chevron-right"></i><i *ngIf="ans4" style="float:right;" class="fas fa-chevron-down"></i><br> <b *ngIf="ans4" >A:Sure, I'll be glad to hear you out.</b></h2>

@@ -1,0 +1,32 @@
+<h1 style="color:white;position:absolute;left:2.5vw;text-decoration: underline">Tenants</h1>
+<div style="position:absolute;left:2.5vw;top:8.3vw;border-radius: 3%;font-family: monospace;font-size: 0.7vw;height: 34.65vw;width: 90.52vw;background-color: #23272a">
+  <h1 style="margin-left:1vw;color:white;position: absolute;top:0.1vw;left:1vw;">Tenant Details</h1>
+  <div style="background-color:#2c2f33;position:absolute;height:28vw;width:35vw;top:4.5vw;left:1vw;border:solid;border-color:transparent;border-radius: 1vw;" >
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Name:</h2>
+    &nbsp;<input type="text" #name id="name" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Jane Doe..">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Phone:</h2>
+    <input type="number" #phone id="phone" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="999-999-9999">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Email:</h2>
+    <input type="text" #email id="email" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="email@domain.com">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Age:</h2>
+    &nbsp;&nbsp;<input #age id="age" type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Age number">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Pets:</h2>
+    &nbsp;<input id="pets" #pets type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Number of pets">
+    <br>
+    <h2 style="color:white;display: inline-block;position: absolute;top:15vw;left:0.5vw;" >Notes:</h2>
+    <textarea  id="notes" #text type="text" style="margin-top:1.2vw;margin-left:5vw;left:0.5vw;width:11vw;height:10vw;max-width:20.5vw;max-height:10vw;font-family: monospace;font-size: 0.7vw;text-align: center;background-color:transparent;color:white;border-radius: 1vw;"></textarea>
+    <i style="position:absolute;left:19vw;top:1vw;color:white;font-size:9vw;background-color: #23272a;border: solid;border-color: transparent;border-radius: 2vw;padding:2vw;" class="fas fa-user-alt"></i>
+    <button id="addButton" (mouseenter)="hoverColor(el4)" (mouseleave)="hoverLeaveColor(el4)" (click)="createTenant(name.value,phone.value,email.value,age.value,pets.value,text.value)" #el4 style="position:absolute;left:21vw;top:16.2vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-plus"></i><br><b>Add Tenant</b></h3></button>
+    <button id="modifyButton" (mouseenter)="hoverColor(el5)" (mouseleave)="hoverLeaveColor(el5)" (click)="modifyTenant(name.value,phone.value,email.value,age.value,pets.value,text.value)" #el5 style="position:absolute;left:21vw;top:16.2vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;display: none;"><h3><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-edit"></i><br><b>Modify Tenant</b></h3></button>
+    <button id="cancelButton" (mouseenter)="hoverColor(el6)" (mouseleave)="hoverLeaveColor(el6)" (click)="cancelTenantSelect()" #el6 style="position:absolute;left:21vw;top:22vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;display: none;"><h3><i style="margin-left: 0.35vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-times"></i><br><b>Cancel</b></h3></button>
+  </div>
+  <h1 style="position: absolute;left:37vw;color:white">Tenants<br><small style="font-size:0.8vw" >(Select tenant to MODIFY or get DETAILS)</small></h1>
+
+    <div style="position:absolute;overflow:scroll;overflow-x:hidden;width: 52.5vw;border-radius: 1vw;left:37vw;top:4.5vw;font-family: monospace;font-size: 0.7vw;height: 28.3vw;width: 52.5vw;background-color: #2c2f33;">
+      <div *ngFor="let tenant of tenantsArray" (click)="addSelectedId(tenant.count,tenant.name)" id="{{tenant.count}}" style="display:inline-block;background-color:#23272a;width:4vw;height:4vw;margin:1vw;border:solid;border-color:transparent;border-radius:0.3vw;float:left;cursor: pointer;"><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-alt"></i><br><div style="width:3.7vw;height:1.3vw;overflow:hidden;"><b style="color:white;font-size:0.6vw;margin-left:0.3vw;">{{tenant.name}}</b></div></div>
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<nav style="position:absolute;height:100%;background-color:#23272a;width: 5%;top:0px;left:0px;border-right: solid;border-right-color: #23272a;border-right-width: 0.5vw;z-index: 100;">
+  <div (click)="switchPage(7)" (mouseenter)="hoverColor(el7)" (mouseleave)="hoverLeaveColor1(el7)" #el7 style="position:absolute;left:0.2vw;top:4.7vw;width: 100%;height: 2vw;border:transparent;border-radius: 8%;cursor: pointer;">
+    <p style="position:absolute;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Log in|Register</p>
+  </div>
+  <i class="fa fa-user-circle" style="position:absolute;color:#99aab5;font-size: 4vw;left:0.5vw;top:0.5vw;z-index:100;left:0.6vw;"></i>
+  <hr style="position:absolute;top:5vw;width:97%;font-size: 4vw;left:0.2vw;">
+  <div (mouseenter)="hoverColor(el1)" (click)="switchPage(1)" (mouseleave)="hoverLeaveColor(el1)" #el1 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:8vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-building" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:1.15vw;z-index:100;"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Rentals</p>
+  </div>
+  <div (mouseenter)="hoverColor(el2)" (click)="switchPage(2)" (mouseleave)="hoverLeaveColor(el2)" #el2 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:14vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-users" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:0.6vw;z-index:100"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Tenants</p>
+  </div>
+  <div (mouseenter)="hoverColor(el3)" (click)="switchPage(3)" (mouseleave)="hoverLeaveColor(el3)" #el3 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:20vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-dollar-sign" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:1.50vw;z-index:100"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Accounting</p>
+  </div>
+  <div (mouseenter)="hoverColor(el4)" (click)="switchPage(4)" (mouseleave)="hoverLeaveColor(el4)" #el4 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:26vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-wrench" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:1.15vw;z-index:100"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Maintenance</p>
+  </div>
+  <div (mouseenter)="hoverColor(el5)" (click)="switchPage(5)" (mouseleave)="hoverLeaveColor(el5)" #el5 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:32vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-bullhorn" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:0.6vw;z-index:100"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Complaints</p>
+  </div>
+  <div (mouseenter)="hoverColor(el6)" (click)="switchPage(6)" (mouseleave)="hoverLeaveColor(el6)" #el6 style="position:absolute;background-color: #2c2f33;width:100%;height:5vw;top:38vw;left:0.2vw;border:transparent;border-radius:5%;cursor: pointer;">
+    <i class="fas fa-at" style="position:absolute;color:#ffffff;top:0.5vw;font-size: 3vw;left:0.8vw;z-index:100"></i>
+    <p style="position:absolute;top:3.5vw;text-align: center;font-size:0.6vw;width:100%;color:#ffffff;font-family: monospace;">Help / Support</p>
+  </div>
+</nav>
+<div style="position:absolute;height:100%;background-color:#2c2f33;width:95%;top:0px;left:5%;">
+  <app-rentals *ngIf="page1" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-rentals>
+  <app-tenants *ngIf="page2" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-tenants>
+  <app-income *ngIf="page3" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-income>
+  <app-maintenance *ngIf="page4" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-maintenance>
+  <app-complaints *ngIf="page5" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-complaints>
+  <app-support *ngIf="page6" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-support>
+  <app-login *ngIf="page7" style="position:absolute;left:0.5vw;top:0px;font-size: 1vw;font-family:monospace;"></app-login>
+</div>
+<footer style="position:absolute;top:44vw;left:40vw;z-index:1000;font-size:1vw;font-family: monospace;color:rgb(112, 112, 112);">
+  <small>&copy; Copyright {{dateYear}}, Dennis Khelvaly</small>
+</footer>

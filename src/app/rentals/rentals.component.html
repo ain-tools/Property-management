@@ -1,0 +1,114 @@
+<div id="addMaintenance">
+<h1 style="color:white;position:absolute;left:2.5vw;text-decoration: underline">Rentals</h1>
+<div *ngIf="toggleSearchDisplay" style="position:absolute;width:35vw;height:20vw;background-color:#2c2f33;z-index:3000;top:12vw;left:24vw;border:solid;border-color:white;border-radius: 1vw;">
+<i (click)="closeSearchDisplay();" style="color:white;position:absolute;right:0.5vw;top:0.5vw;cursor:pointer;" class="fas fa-times"></i>
+<br>
+    <h4 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Type:</h4>
+    <input #editType type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" value="{{matchedRentalOBJ.type}}">
+    <br>
+    <h4 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Rent:</h4>
+    <input #editRent type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" value="{{matchedRentalOBJ.rent}}">
+    <br>
+    <h4 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Add.:</h4>
+    <input #editAddress type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" value="{{matchedRentalOBJ.address}}">
+    <br>
+    <h4 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Tenant:</h4>
+    <input #editTenant type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" value="{{matchedRentalOBJ.tenant}}">
+    <button (mouseenter)="hoverColor(el9)" (mouseleave)="hoverLeaveColor(el9)" #el9 (click)="editRental(editType.value,editRent.value,editAddress.value,editTenant.value)" style="position:absolute;left:24.5vw;top:17vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3 style="width:8vw;margin-left:-1vw;"><b><i style="color:white;font-size:0.80vw;display: inline-block;margin-right:0.2vw;" class="fas fa-edit"></i>Edit rental</b></h3></button>
+    <h4 style="position:absolute;left:20vw;top:1vw;color:white" >Select Tenant</h4>
+    <div style="overflow:scroll;overflow-x:hidden;height:6.6vw;width: 45%;position: absolute;left:18vw;top:5vw;background-color:#23272a;border:transparent;border-radius: 1vw;">
+      <div *ngFor="let tenant of tenantsArray" (click)="addSelectedIdEdit(tenant.count,tenant.name)" id="{{tenant.count}}" style="display:inline-block;background-color:#2c2f33;width:4vw;height:4vw;margin:1vw;border:solid;border-color:transparent;border-radius:0.3vw;float:left;cursor: pointer;"><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-alt"></i><br><div style="width:3.7vw;height:1.3vw;overflow:hidden;"><b style="color:white;font-size:0.6vw;margin-left:0.3vw;">{{tenant.name}}</b></div></div>
+    </div>
+</div>
+<div id="firstPage">
+  <button (mouseenter)="hoverColor(el1)" (mouseleave)="hoverLeaveColor(el1)" #el1 (click)="switchPage();" style="position:absolute;left:2.5vw;top:5vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3 style="width:8vw;margin-left:-1vw;"><b><i style="color:white;font-size:0.80vw;display: inline-block;margin-right:0.2vw;" class="fas fa-plus-circle"></i>Create rental</b></h3></button>
+  <input #searchInput type="text" style="position:absolute;left:13.5vw;top:5vw;height:2.5vw;width:10.5vw;border-radius: 0.3vw;border-width:0.09vw;font-family: monospace;font-size: 0.7vw;text-align: center;" placeholder="Search by unit..">
+  <button (mouseenter)="hoverColor(el8)" (mouseleave)="hoverLeaveColor(el8)" #el8 (click)="searchByUnit(searchInput.value);" style="position:absolute;left:24.25vw;padding-left:0.8vw;padding-right:0.8vw;top:5vw;background-color:rgb(0, 126, 143);font-size:0.7vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:0.5vw;color:white;font-family: monospace;cursor: pointer;height:2.8vw;"><i style="color:white;font-size:0.5vw;display: inline-block;" class="fas fa-search"></i><div style="font-size:0.5vw;">Search and Edit</div></button>
+  <div style="position:absolute;left:2.5vw;top:8.3vw;border-radius: 3%;font-family: monospace;font-size: 0.7vw;height: 34.65vw;width: 65vw;background-color: #23272a">
+    <div style="overflow:scroll;overflow-x:hidden;height:34.5vw;width: 100.5%;">
+      <table id="customers">
+        <tr>
+          <th>Unit</th>
+          <th>Tenant</th>
+          <th>$ / Month</th>
+          <th>Payment Status</th>
+          <th>Maintenance</th>
+          <th>Last Modified</th>
+          <th>Delete</th>
+        </tr>
+        <tr *ngFor="let rental of rentalsArray">
+          <td>{{rental.address}}</td>
+          <td>{{rental.tenant}}</td>
+          <td>{{rental.rent}}$/month</td>
+          <td style="text-align: center;"><b *ngIf="rental.paid" style="color:green">Paid</b><b *ngIf="!rental.paid" style="color:red">Not-Paid</b><input style="top:3.8vw;" *ngIf="!rental.paid" (click)="paidToggle(rental.count);" type="checkbox"><input style="top:3.8vw;" *ngIf="rental.paid" checked (click)="paidToggle(rental.count);" type="checkbox"></td>
+          <td><div style="display:inline-block;" *ngIf="!rental.maintenance">None.</div><div style="display:inline-block;max-width:4vw;overflow:hidden;height:0.7vw;">{{rental.maintenance}}</div><button (click)="addMaintenance();" style="background-color:rgb(0, 126, 143);font-size:0.7vw;width: 5vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:0.7vw;padding-right:0.7vw;color:white;font-family: monospace;cursor: pointer;"><i class="fa fa-plus"></i>Add</button> </td>
+          <td>{{rental.date}}</td>
+          <td><i (click)="deleteRental(rental.count)" style="color:red;padding:1vw;margin-left:2vw;cursor: pointer;" class="fa fa-times"></i></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+  <div style="position:absolute;left:68vw;top:2.3vw;border-radius: 3%;font-family: monospace;font-size: 0.7vw;height: 40.65vw;width: 25vw;background-color: #23272a">
+    <div>
+      <h1 style="color:white;text-align:center;" >Statistics</h1>
+      <hr>
+      <h1 id="titleStat" style="color:white;text-align:center;">Payment Status</h1>
+      <canvas id="myChart"></canvas>
+      <canvas id="myChart2"></canvas>
+      <canvas id="myChart3"></canvas>
+      <br>
+      <hr style="position:absolute;width:100%;top:33vw;">
+      <i (mouseenter)="hoverColor1(el2)" (mouseleave)="hoverLeaveColor1(el2)" (click)="changeStat1()" #el2 style="position:absolute;color:white;font-size:3.5vw;left:2vw;bottom:2vw;padding:0.5vw;border-radius:15%" class="far fa-caret-square-left"></i>
+      <i (mouseenter)="hoverColor1(el3)" (mouseleave)="hoverLeaveColor1(el3)" (click)="changeStat()" #el3 style="position:absolute;color:white;font-size:3.5vw;right:2vw;bottom:2vw;padding:0.5vw;border-radius: 15%;" class="far fa-caret-square-right"></i>
+    </div>
+  </div>
+</div>
+<div id="secondPage">
+  <button (mouseenter)="hoverColor(el6)" (mouseleave)="hoverLeaveColor(el6)" #el6 (click)="switchPage();" style="position:absolute;left:2.5vw;top:5vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3> <i class="	fas fa-chevron-circle-left" style="margin-left:-1vw"></i> &nbsp; <b>Go back</b></h3></button>
+  <div style="position:absolute;left:2.5vw;top:8.3vw;border-radius: 3%;font-family: monospace;font-size: 0.7vw;height: 34.65vw;width: 80.5vw;background-color: #23272a">
+    <button (mouseenter)="hoverColor(el5)" (mouseleave)="hoverLeaveColor(el5)" #el5 (click)="createRental(type.value,rent.value,address.value);" id="createRental" style="display:none;position:absolute;left:31vw;top:9.4vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3><i style="margin-left: 0.25vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-plus"></i><br><b>Create Rental</b></h3></button>
+    <h1 style="margin-left:1vw;color:white">Property</h1>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Type:</h2>
+    <input #type type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Apt, Home, Condo..">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Rent:</h2>
+    <input #rent type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="$ / month">
+    <br>
+    <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Add.:</h2>
+    <input #address type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Address(32 Wilson Street)">
+    <h1 style="margin-left:1vw;color:white">Select Tenant</h1>
+    <div style="border-radius: 3%;margin-left:1vw;font-family: monospace;font-size: 0.7vw;height: 16.65vw;width: 40vw;background-color: #2c2f33;">
+      <div style="overflow:scroll;overflow-x:hidden;height:16.6vw;width: 96%;">
+        <div *ngFor="let tenant of tenantsArray" (click)="addSelectedId(tenant.count,tenant.name)" id="{{tenant.count}}" style="display:inline-block;background-color:#23272a;width:4vw;height:4vw;margin:1vw;border:solid;border-color:transparent;border-radius:0.3vw;float:left;cursor: pointer;"><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-alt"></i><br><div style="width:3.7vw;height:1.3vw;overflow:hidden;"><b style="color:white;font-size:0.6vw;margin-left:0.3vw;">{{tenant.name}}</b></div></div>
+      </div>
+    </div>
+    <h1 style="margin-left:1vw;color:white;position: absolute;top:0.1vw;left:43vw;">Create Tenant</h1>
+    <div style="background-color:#2c2f33;position:absolute;height:28vw;width:35vw;top:4.5vw;left:44vw;border:solid;border-color:transparent;border-radius: 1vw;" >
+      <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;">Name:</h2>
+      &nbsp;<input #name type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Jane Doe..">
+      <br>
+      <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Phone:</h2>
+      <input #phone type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="999-999-9999">
+      <br>
+      <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Email:</h2>
+      <input #email type="text" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="email@domain.com">
+      <br>
+      <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Age:</h2>
+      &nbsp;&nbsp;<input #age type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Age number">
+      <br>
+      <h2 style="margin-left:1vw;color:white;display: inline-block;margin-right:0.5vw;" >Pets:</h2>
+      &nbsp;<input #pets type="number" style="left:0.5vw;width:10.5vw;border:transparent;border-bottom:solid;border-bottom-color:white;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white" placeholder="Number of pets">
+      <br>
+      <h2 style="color:white;display: inline-block;position: absolute;top:15vw;left:0.5vw;" >Notes:</h2>
+      <textarea type="text" #notes style="margin-top:1.2vw;margin-left:5vw;left:0.5vw;width:11vw;height:10vw;max-width:11vw;max-height:10vw;font-family: monospace;font-size: 0.7vw;text-align: center;background-color: transparent;color:white;border-radius: 1vw;"></textarea>
+      <i style="position:absolute;left:19vw;top:1vw;color:white;font-size:9vw;background-color: #23272a;border: solid;border-color: transparent;border-radius: 2vw;padding:2vw;" class="fas fa-user-alt"></i>
+      <button (mouseenter)="hoverColor(el4)" (mouseleave)="hoverLeaveColor(el4)" #el4 (click)="createTenant(name.value,phone.value,email.value,age.value,pets.value,notes.value)" style="position:absolute;left:21vw;top:16.2vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3><i style="margin-left: 1.1vw;margin-top: 0.8vw;color:white;font-size:2vw;" class="fas fa-user-plus"></i><br><b>Add Tenant</b></h3></button>
+    </div>
+</div>
+</div>
+</div>
+<div style="display:none" id="maintenance">
+  <button (mouseenter)="hoverColor(el7)" (mouseleave)="hoverLeaveColor(el7)" #el7 (click)="goBackMaintenance()" style="position:absolute;left:2.5vw;top:5vw;background-color:rgb(0, 126, 143);font-size:0.7vw;width: 10vw;border:solid;border-width:0.03vw;border-color:rgb(255, 255, 255);border-radius:3%;padding-left:2vw;padding-right:2vw;color:white;font-family: monospace;cursor: pointer;"><h3> <i class="	fas fa-chevron-circle-left" style="margin-left:-1vw"></i> &nbsp; <b>Go back</b></h3></button>
+  <app-maintenance></app-maintenance>
+</div>
+
